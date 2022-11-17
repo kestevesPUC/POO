@@ -67,4 +67,7 @@ public class Circulo extends Figura{
         String aux = super.toString();
         return aux + "("+this.raio+")";
     }
+    public double getRaio() {
+        return this.raio;
+    }
 }

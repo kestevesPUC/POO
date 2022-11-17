@@ -22,7 +22,7 @@ public class AppAleatorio {
     static ArrayList<Figura> figuras = new ArrayList<>();
     static Random aleat = new Random(42);
 
-    public int compareTo(Figura f, Figura f2) {
+    public static int compareTo(Figura f, Figura f2) {
         if(f.area() > f2.area())
             return 1;
         else if(f.area() < f2.area())
@@ -140,12 +140,12 @@ public class AppAleatorio {
                 break;
 
                 case 4: //Raio do maior círculo com área menor que 1500
-                    System.out.println(
-                        figuras.stream().filter(a -> a.area() < 1500)                        
-                            .filter(d -> d.descricao.contains("Circulo"))
-                            .max((f1,f2) -> f1.compareTo(f2))
-                            .get()
-                    ); 
+                    Circulo c = (Circulo)figuras.stream().filter(a -> a.area() < 1500)                        
+                                .filter(d -> d.descricao.contains("Circulo"))
+                                .max((f1,f2) -> AppAleatorio.compareTo(f1, f2))
+                                .get();
+                        
+                    System.out.println("\n\nO raio é: " + c.getRaio()); 
 
                     TimeUnit.SECONDS.sleep(2);
                     System.out.println("\n\nPressione enter para continuar: ");
@@ -156,7 +156,7 @@ public class AppAleatorio {
 
                 case 5: //SAIR
                     clear();
-                    System.out.println("Obrigado e volte sempre!");
+                    System.out.println("\n\nObrigado e volte sempre!");
                     opcao = -1;
                     TimeUnit.SECONDS.sleep(2);
                     clear();
