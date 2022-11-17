@@ -25,7 +25,7 @@
  /**
   * Classe abstrata: figura geométrica
   */
-public abstract class Figura{
+public abstract class Figura {
 
     //atributo
     protected String descricao;
