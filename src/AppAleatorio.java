@@ -22,6 +22,15 @@ public class AppAleatorio {
     static ArrayList<Figura> figuras = new ArrayList<>();
     static Random aleat = new Random(42);
 
+    public int compareTo(Figura f, Figura f2) {
+        if(f.area() > f2.area())
+            return 1;
+        else if(f.area() < f2.area())
+            return -1;
+        
+            return 0;
+    }
+
     public static void clear() {
 
         System.out.print("\033[H\033[2J");
@@ -119,10 +128,8 @@ public class AppAleatorio {
                     System.out.print("\n\n" +
                         figuras.stream()
                             .filter(c -> c.perimetro() > 200)
-                            .mapToDouble(c -> c.perimetro())
-                            .min()
-                            .toString()
-                            
+                            .min((a,b) -> (a.compareTo(b)))
+                            .get()
                     );
 
                     TimeUnit.SECONDS.sleep(2);
@@ -133,14 +140,11 @@ public class AppAleatorio {
                 break;
 
                 case 4: //Raio do maior círculo com área menor que 1500
-                        /*figuras.stream()
-                            .filter(a -> a.area() < 1500)
-                            .count();*/
                     System.out.println(
                         figuras.stream().filter(a -> a.area() < 1500)                        
-                            .mapToDouble(Figura::area)
-                            .max()
-                            .getAsDouble()
+                            .filter(d -> d.descricao.contains("Circulo"))
+                            .max((f1,f2) -> f1.compareTo(f2))
+                            .get()
                     ); 
 
                     TimeUnit.SECONDS.sleep(2);

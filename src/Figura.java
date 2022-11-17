@@ -25,8 +25,18 @@
  /**
   * Classe abstrata: figura geométrica
   */
-public abstract class Figura {
+public abstract class Figura implements Comparable<Figura>{
 
+    @Override
+    public int compareTo(Figura f) {
+        if(this.perimetro() > f.perimetro())
+            return 1;
+        else if(this.perimetro() < f.perimetro())
+            return -1;
+        
+            return 0;
+        
+    }
     //atributo
     protected String descricao;
 
