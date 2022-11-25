@@ -113,7 +113,7 @@ public class AppAleatorio {
                     System.out.println("\n\nFiguras cujo a área é maior que 5.000\n");
                     figuras.stream()
                         .filter(c -> c.area() > 5000)
-                        .forEach(c -> System.out.println(c.toString()));
+                        .forEach(c -> System.out.println(c));
 
                     TimeUnit.SECONDS.sleep(2);
                     System.out.println("\n\nPressione enter para continuar: ");
@@ -123,8 +123,7 @@ public class AppAleatorio {
                     opcao = 0;
                 break;
 
-                case 3:// Descrição da figura com o menor perímetro acima de 200                    
-                    // ERRADO!!!
+                case 3:// Descrição da figura com o menor perímetro acima de 200    
                     System.out.print("\n\n" +
                         figuras.stream()
                             .filter(c -> c.perimetro() > 200)

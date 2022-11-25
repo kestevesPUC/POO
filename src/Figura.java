@@ -25,7 +25,7 @@
  /**
   * Classe abstrata: figura geométrica
   */
-public abstract class Figura implements Comparable<Figura>{
+public abstract class Figura implements Comparable<Figura> {
 
     @Override
     public int compareTo(Figura f) {
